@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.synnapps.carouselview.ImageListener
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.WelcomeFragmentBinding
-
 
 class WelcomeFragment : Fragment() {
 
@@ -46,6 +46,13 @@ class WelcomeFragment : Fragment() {
 
         binding.carouselView.pageCount = sampleImages.size;
         binding.carouselView.setImageListener(imageListener);
+
+        binding
+            .nextButton
+            .setOnClickListener {
+                findNavController()
+                    .navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment())
+            }
 
         return binding.root
     }

@@ -36,8 +36,8 @@
 
     <RelativeLayout
         android:id="@+id/carouselLayout"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
+        android:layout_width="210dp"
+        android:layout_height="210dp"
         android:layout_marginTop="68dp"
         android:background="@color/darkPurple"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -54,17 +54,17 @@
             app:pageColor="#00000000"
             app:radius="6dp"
             android:layout_centerInParent="true"
-            app:slideInterval="2000"
+            app:slideInterval="1500"
             app:strokeColor="#FF777777"
             app:strokeWidth="1dp" />
     </RelativeLayout>
 
     <Button
-        android:id="@+id/shopButton"
+        android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:text="@string/start_shopping"
+        android:text="@string/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carouselLayout" />

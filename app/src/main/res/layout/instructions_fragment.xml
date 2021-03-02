@@ -7,12 +7,12 @@
         android:background="@color/pastelPurple">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/instruction_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="116dp"
             android:fontFamily="@font/asap_medium"
-            android:text="@string/welcome"
+            android:text="@string/instructions_title"
             android:textColor="@color/offWhite"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -21,17 +21,21 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:id="@+id/instructions"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:background="@drawable/square"
+            android:layout_marginStart="@dimen/fragment_vertical_double_margin"
+            android:layout_marginEnd="@dimen/fragment_vertical_double_margin"
+            android:paddingVertical="@dimen/fragment_vertical_margin"
+            android:paddingHorizontal="@dimen/fragment_vertical_margin"
+            android:layout_marginTop="40dp"
             android:fontFamily="@font/asap"
-            android:text="@string/slogan"
+            android:maxLines="15"
+            android:text="@string/instructions"
             android:textColor="@color/offWhite"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:textSize="15sp"
+            app:layout_constraintTop_toBottomOf="@+id/instruction_title" />
 
         <Button
             android:id="@+id/shopButton"
@@ -41,7 +45,7 @@
             android:text="@string/start_shopping"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/carouselLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/instructions" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

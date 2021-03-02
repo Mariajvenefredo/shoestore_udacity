@@ -17,6 +17,9 @@
     <string name="register">register</string>
     <string name="mainTitle">Shoe Store</string>
     <string name="start_shopping">Start Shopping</string>
+    <string name="next">Next</string>
     <string name="registerLabel">Don\'t have an account? Register here</string>
     <string name="slogan">Here you can find the best shoes at the best price</string>
+    <string name="instructions_title">Instructions</string>
+    <string name="instructions">❂ Select "Start Shopping" to check out all our shoes\n\n❂ You can scroll through the list to see the shoes\n\n❂ Select a specific shoe to see it\'s details\n\n❂ Have fun!</string>
 </resources>
