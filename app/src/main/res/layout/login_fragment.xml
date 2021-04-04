@@ -11,28 +11,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="100dp" />
+        app:layout_constraintGuide_begin="@dimen/form_split_margin" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="24dp" />
+        app:layout_constraintGuide_begin="@dimen/fragment_guideline_margin" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="24dp" />
+        app:layout_constraintGuide_end="@dimen/fragment_guideline_margin" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="50dp" />
+        app:layout_constraintGuide_begin="@dimen/fragment_guideline_margin" />
     <TextView
         android:id="@+id/mainTitle"
         android:layout_width="wrap_content"
@@ -58,18 +58,18 @@
         app:layout_constraintTop_toBottomOf="@+id/mainTitle" />
 
     <TextView
-        android:id="@+id/usernameLabel"
+        android:id="@+id/emailLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/offWhite"
         android:paddingRight="10dp"
         android:text="@string/email"
-        app:layout_constraintBaseline_toBaselineOf="@+id/username"
+        app:layout_constraintBaseline_toBaselineOf="@+id/email"
         app:layout_constraintTop_toBottomOf="@+id/loginTitle"
         app:layout_constraintEnd_toStartOf="@+id/guideline_left_after_label" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/email"
         android:layout_width="0dp"
         android:layout_marginTop="30dp"
         android:textColor="@color/offWhite"
@@ -100,7 +100,7 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left_after_label"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <Button
         android:id="@+id/loginButton"

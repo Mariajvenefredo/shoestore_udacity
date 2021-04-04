@@ -3,11 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".screens.MainActivity">
-        <LinearLayout
+        tools:context=".MainActivity">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:elevation="3dp"
+            android:background="@color/darkPurple"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:menu="@menu/navigation_menu" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_marginTop="45dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 

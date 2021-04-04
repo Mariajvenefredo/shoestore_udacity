@@ -38,8 +38,7 @@ class LoginFragment : Fragment() {
         return binding.root
     }
 
-    private fun navigateToWelcomeScreen() {
+    private fun navigateToWelcomeScreen() =
         findNavController()
             .navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
-    }
 }

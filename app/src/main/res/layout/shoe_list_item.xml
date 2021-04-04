@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <RelativeLayout
+            android:id="@+id/imageLayout"
+            android:layout_width="90dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="@dimen/fragment_vertical_margin"
+            android:background="@color/darkPurple"
+            app:layout_constraintBottom_toTopOf="@+id/shoeName"
+            app:layout_constraintEnd_toStartOf="@+id/companyAndDescLayout"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/shoeImage"
+                android:layout_width="87dp"
+                android:layout_height="72dp"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/shoeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/fragment_vertical_margin"
+            android:fontFamily="@font/asap"
+            android:textSize="16sp"
+            android:textColor="@color/offWhite"
+            android:shadowColor="@color/darkPurple"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageLayout"
+            app:layout_constraintStart_toStartOf="@+id/imageLayout"
+            app:layout_constraintTop_toBottomOf="@+id/imageLayout" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/companyAndDescLayout"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/shoeCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/asap"
+                android:gravity="center"
+                android:textSize="12sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/shoeDescription"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5" />
+            <TextView
+                android:id="@+id/shoeDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:fontFamily="@font/asap"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintTop_toBottomOf="@+id/shoeCompany"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            layout="@layout/divider_view"
+            app:layout_constraintTop_toBottomOf="@+id/image" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

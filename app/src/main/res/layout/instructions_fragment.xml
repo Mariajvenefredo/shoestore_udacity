@@ -10,7 +10,7 @@
             android:id="@+id/instruction_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="116dp"
+            android:layout_marginTop="@dimen/fragment_margin_top"
             android:fontFamily="@font/asap_medium"
             android:text="@string/instructions_title"
             android:textColor="@color/offWhite"

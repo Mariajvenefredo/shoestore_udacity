@@ -1,10 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/pastelPurple">
+
+        <TextView
+            android:id="@+id/shoeCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_vertical_margin"
+            android:layout_marginEnd="@dimen/fragment_horizontal_margin"
+            android:fontFamily="@font/asap"
+            android:gravity="center"
+            android:text="@string/addShoe"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/addShoeButton"
+            app:layout_constraintEnd_toStartOf="@+id/addShoeButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addShoeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_vertical_margin"
+            android:layout_marginEnd="@dimen/fragment_horizontal_double_margin"
+            app:fabCustomSize="35dp"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/ic_add"
+            app:backgroundTint="@color/darkPurple"
+            app:layout_constraintBottom_toTopOf="@+id/shoeListScrollView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:id="@+id/shoeListScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:paddingBottom="@dimen/scrollview_padding"
+            app:layout_constraintTop_toBottomOf="@+id/addShoeButton"
+            tools:layout_editor_absoluteX="0dp">
+
+            <LinearLayout
+                android:id="@+id/shoeListContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

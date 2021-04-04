@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".screens.shoeDetail.ShoeDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pastelPurple">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_left_after_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/form_split_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/fragment_guideline_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/fragment_guideline_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/fragment_guideline_margin" />
+
+        <TextView
+            android:id="@+id/shoeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/asap"
+            android:text="@string/addShoe"
+            android:textColor="@color/offWhite"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+        <TextView
+            android:id="@+id/shoeNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:text="@string/name"
+            android:textColor="@color/offWhite"
+            app:layout_constraintBaseline_toBaselineOf="@+id/shoeNameEdit"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_left_after_label"
+            app:layout_constraintTop_toBottomOf="@+id/shoeName" />
+
+        <EditText
+            android:id="@+id/shoeNameEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/fragment_vertical_double_margin"
+            android:hint="@string/prompt_name"
+            android:textColor="@color/offWhite"
+            app:layout_constraintEnd_toEndOf="@id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left_after_label"
+            app:layout_constraintTop_toBottomOf="@+id/shoeName" />
+
+        <TextView
+            android:id="@+id/companyLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:text="@string/company"
+            android:textColor="@color/offWhite"
+            app:layout_constraintBaseline_toBaselineOf="@+id/companyEdit"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_left_after_label" />
+
+        <EditText
+            android:id="@+id/companyEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_vertical_margin"
+            android:maxLines="1"
+            android:hint="@string/prompt_company"
+            android:textColor="@color/offWhite"
+            app:layout_constraintEnd_toEndOf="@id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left_after_label"
+            app:layout_constraintTop_toBottomOf="@+id/shoeNameLabel" />
+
+        <TextView
+            android:id="@+id/sizeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:text="@string/size"
+            android:textColor="@color/offWhite"
+            app:layout_constraintBaseline_toBaselineOf="@+id/sizeEdit"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_left_after_label" />
+
+        <EditText
+            android:id="@+id/sizeEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_vertical_margin"
+            android:hint="@string/prompt_size"
+            android:maxLines="1"
+            android:textColor="@color/offWhite"
+            app:layout_constraintEnd_toEndOf="@id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left_after_label"
+            app:layout_constraintTop_toBottomOf="@+id/companyLabel" />
+
+        <TextView
+            android:id="@+id/descriptionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:text="@string/description"
+            android:textColor="@color/offWhite"
+            app:layout_constraintBaseline_toBaselineOf="@+id/descriptionEdit"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_left_after_label" />
+
+        <EditText
+            android:id="@+id/descriptionEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_vertical_margin"
+            android:hint="@string/prompt_description"
+            android:textColor="@color/offWhite"
+            app:layout_constraintEnd_toEndOf="@id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left_after_label"
+            app:layout_constraintTop_toBottomOf="@+id/sizeLabel" />
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add"
+            android:layout_marginTop="@dimen/fragment_horizontal_double_margin"
+            app:layout_constraintBottom_toBottomOf="@+id/cancelButton"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toEndOf="@+id/cancelButton"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionEdit" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_horizontal_double_margin"
+            android:text="@string/cancel"
+            app:layout_constraintEnd_toStartOf="@+id/addButton"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionEdit" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

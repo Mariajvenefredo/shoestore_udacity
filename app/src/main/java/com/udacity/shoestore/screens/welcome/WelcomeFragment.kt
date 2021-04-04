@@ -30,10 +30,12 @@ class WelcomeFragment : Fragment() {
 
     private var imageListener: ImageListener =
         ImageListener { position, imageView ->
-            imageView.setImageResource(sampleImages[position])
-            imageView.adjustViewBounds = true
-            imageView.setBackgroundColor(Color.WHITE)
-            imageView.scaleType = ImageView.ScaleType.CENTER_INSIDE
+            imageView.apply {
+                setImageResource(sampleImages[position])
+                adjustViewBounds = true
+                setBackgroundColor(Color.WHITE)
+                scaleType = ImageView.ScaleType.CENTER_INSIDE
+            }
         }
 
     override fun onCreateView(
@@ -44,16 +46,15 @@ class WelcomeFragment : Fragment() {
         binding = DataBindingUtil
             .inflate(inflater, R.layout.welcome_fragment, container, false)
 
-        binding.carouselView.pageCount = sampleImages.size;
-        binding.carouselView.setImageListener(imageListener);
-
-        binding
-            .nextButton
-            .setOnClickListener {
-                findNavController()
-                    .navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment())
-            }
-
+        binding.apply {
+            carouselView.pageCount = sampleImages.size
+            carouselView.setImageListener(imageListener)
+            nextButton
+                .setOnClickListener {
+                    findNavController()
+                        .navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment())
+                }
+        }
         return binding.root
     }
 }
