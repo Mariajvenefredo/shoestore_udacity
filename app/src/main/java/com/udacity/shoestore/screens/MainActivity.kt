@@ -1,10 +1,16 @@
 package com.udacity.shoestore.screens
 
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.Window
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
@@ -15,22 +21,32 @@ import com.udacity.shoestore.databinding.MainActivityBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var binding: MainActivityBinding
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil
-            .setContentView<MainActivityBinding>(this, R.layout.main_activity)
+
+        binding = DataBindingUtil
+            .setContentView(this, R.layout.main_activity)
 
         val navController = this.findNavController(R.id.nav_host_fragment)
 
         appBarConfiguration =
-            AppBarConfiguration.Builder(setOf(R.layout.login_fragment))
-                .build()
+            AppBarConfiguration(setOf(R.id.loginFragment, R.id.shoeListFragment))
 
         setSupportActionBar(binding.toolbar)
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
-        supportActionBar?.setDisplayShowTitleEnabled(false);
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
+        navController.addOnDestinationChangedListener { nc: NavController, nd: NavDestination, _ ->
+            if (nd.id == nc.graph.startDestination) {
+                supportActionBar?.hide()
+                binding.toolbar.setBackgroundColor(getColor(R.color.darkPurple))
+            } else {
+                supportActionBar?.show()
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

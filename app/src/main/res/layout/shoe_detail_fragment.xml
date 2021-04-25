@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="@dimen/fragment_guideline_margin" />
+            app:layout_constraintGuide_begin="@dimen/fragment_margin_top" />
 
         <TextView
             android:id="@+id/shoeName"
@@ -99,14 +99,15 @@
             android:id="@+id/sizeLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_vertical_double_margin"
             android:paddingRight="10dp"
             android:text="@string/size"
             android:textColor="@color/offWhite"
-            app:layout_constraintBaseline_toBaselineOf="@+id/sizeEdit"
+            app:layout_constraintTop_toBottomOf="@+id/companyLabel"
             app:layout_constraintEnd_toStartOf="@+id/guideline_left_after_label" />
 
-        <EditText
-            android:id="@+id/sizeEdit"
+        <Spinner
+            android:id="@+id/sizeSpinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/fragment_vertical_margin"
@@ -115,7 +116,9 @@
             android:textColor="@color/offWhite"
             app:layout_constraintEnd_toEndOf="@id/guideline_right"
             app:layout_constraintStart_toStartOf="@+id/guideline_left_after_label"
-            app:layout_constraintTop_toBottomOf="@+id/companyLabel" />
+            app:layout_constraintTop_toBottomOf="@+id/companyLabel"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown"/>
 
         <TextView
             android:id="@+id/descriptionLabel"

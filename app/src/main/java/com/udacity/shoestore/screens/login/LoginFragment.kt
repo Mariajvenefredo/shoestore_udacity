@@ -20,6 +20,7 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
         binding = DataBindingUtil
             .inflate(inflater, R.layout.login_fragment, container, false)
 

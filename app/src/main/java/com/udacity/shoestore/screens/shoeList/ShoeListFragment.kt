@@ -14,11 +14,12 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoeListFragmentBinding
 import com.udacity.shoestore.databinding.ShoeListItemBinding
 import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.screens.ShoeActivityViewModel
 
 class ShoeListFragment : Fragment() {
 
     private lateinit var binding: ShoeListFragmentBinding
-    private lateinit var viewModel: ShoeListViewModel
+    private lateinit var viewModel: ShoeActivityViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,7 +29,7 @@ class ShoeListFragment : Fragment() {
 
         binding = DataBindingUtil
             .inflate(inflater, R.layout.shoe_list_fragment, container, false)
-        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ShoeActivityViewModel::class.java)
 
         val shoeList = viewModel.shoeList.value
 
@@ -39,6 +40,7 @@ class ShoeListFragment : Fragment() {
             ?.map { b -> b.root }
             ?.forEach(binding.shoeListContainer::addView)
 
+        binding.lifecycleOwner = this
         binding
             .addShoeButton
             .apply {
@@ -49,8 +51,12 @@ class ShoeListFragment : Fragment() {
                 }
             }
 
-        binding.lifecycleOwner = this
         return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProvider(requireActivity()).get(ShoeActivityViewModel::class.java)
     }
 
     private fun buildShoeItemView(
@@ -63,6 +69,7 @@ class ShoeListFragment : Fragment() {
                 shoeName.text = shoe.name
                 shoeCompany.text = shoe.company
                 shoeDescription.text = shoe.description
+                shoeSize.text = shoe.size.toString()
                 shoeImage.setImageResource(shoe.imageResId)
                 shoeImage.scaleType = ImageView.ScaleType.FIT_XY
             }
