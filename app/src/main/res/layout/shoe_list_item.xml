@@ -6,6 +6,9 @@
             name="shoe"
             type="com.udacity.shoestore.models.Shoe" />
     </data>
+
+    <!-- Constraint layout is used due to the complexity of the disposition of elements,
+    complexity of the hierarchy and alignment of elements   -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="150dp">

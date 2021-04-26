@@ -5,6 +5,7 @@ import android.view.*
 import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -35,14 +36,7 @@ class ShoeListFragment : Fragment() {
         val shoeList = viewModel.shoeList
         binding.lifecycleOwner = this
 
-        shoeList
-            .observe(viewLifecycleOwner, Observer { shoes ->
-                shoes
-                    ?.take(shoes.size)
-                    ?.mapIndexed { _, shoe -> buildShoeItemView(inflater, shoe) }
-                    ?.map { b -> b.root }
-                    ?.forEach(binding.shoeListContainer::addView)
-            })
+        buildShoeListView(shoeList, inflater)
 
         binding
             .addShoeButton
@@ -62,6 +56,24 @@ class ShoeListFragment : Fragment() {
         viewModel = ViewModelProvider(requireActivity()).get(ShoeActivityViewModel::class.java)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.navigation_menu, menu)
+    }
+
+    private fun buildShoeListView(
+        shoeList: LiveData<MutableList<Shoe>>,
+        inflater: LayoutInflater
+    ) =
+        shoeList
+            .observe(viewLifecycleOwner, Observer { shoes ->
+                shoes
+                    ?.take(shoes.size)
+                    ?.mapIndexed { _, shoe -> buildShoeItemView(inflater, shoe) }
+                    ?.map { b -> b.root }
+                    ?.forEach(binding.shoeListContainer::addView)
+            })
+
     private fun buildShoeItemView(
         inflater: LayoutInflater,
         shoe: Shoe
@@ -74,9 +86,4 @@ class ShoeListFragment : Fragment() {
                 shoeImage.setImageResource(shoe.imageResId)
                 shoeImage.scaleType = ImageView.ScaleType.FIT_XY
             }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.navigation_menu, menu)
-    }
 }
