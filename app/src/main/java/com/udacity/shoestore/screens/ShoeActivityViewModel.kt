@@ -83,9 +83,9 @@ class ShoeActivityViewModel(application: Application) : AndroidViewModel(applica
     ) =
         Shoe(
             getString(titleResId),
-            shoeSize,
             getString(companyResId),
             getString(descriptionResId),
+            shoeSize,
             imageId
         )
 

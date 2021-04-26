@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoeDetailFragmentBinding
-import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.screens.ShoeActivityViewModel
 
 class ShoeDetailFragment : Fragment() {
@@ -38,11 +37,11 @@ class ShoeDetailFragment : Fragment() {
             .setOnClickListener {
                 addShoeToList()
             }
-        setShoeSpinner()
+        setShoeSizeSpinner()
         return binding.root
     }
 
-    private fun setShoeSpinner() {
+    private fun setShoeSizeSpinner() {
         val sizes = viewModel.shoeSizes()
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, sizes)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -51,12 +50,9 @@ class ShoeDetailFragment : Fragment() {
     }
 
     private fun addShoeToList() {
-        val name = binding.shoeNameEdit.text.toString()
         val size = binding.sizeSpinner.selectedItem as Double
-        val company = binding.companyEdit.text.toString()
-        val description = binding.descriptionEdit.text.toString()
-
-        val shoe = Shoe(name, size, company, description)
+        val shoe = binding.shoe
+        shoe!!.size = size
         viewModel.onShoeAdded(shoe)
 
         navigateBackToShoesScreen()

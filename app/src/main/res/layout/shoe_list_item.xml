@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    <data>
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="150dp">
@@ -34,6 +38,7 @@
             android:fontFamily="@font/asap"
             android:shadowColor="@color/darkPurple"
             android:textColor="@color/offWhite"
+            android:text="@={shoe.name}"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageLayout"
@@ -57,7 +62,7 @@
                 android:gravity="center"
                 android:paddingRight="5dp"
                 android:text="@string/company"
-                android:textColor="@color/offWhite"
+                android:textColor="@color/darkPurple"
                 android:textSize="12sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/shoeCompany"
                 app:layout_constraintBottom_toTopOf="@+id/descriptionLabel"
@@ -70,6 +75,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/asap"
                 android:textSize="12sp"
+                android:textColor="@color/offWhite"
+                android:text="@={shoe.company}"
                 app:layout_constraintBottom_toTopOf="@+id/shoeDescription"
                 app:layout_constraintStart_toEndOf="@+id/companyLabel"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -82,7 +89,7 @@
                 android:gravity="center"
                 android:paddingRight="5dp"
                 android:text="@string/description"
-                android:textColor="@color/offWhite"
+                android:textColor="@color/darkPurple"
                 android:textSize="12sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/shoeDescription"
                 app:layout_constraintBottom_toTopOf="@+id/shoeSizeLabel"
@@ -95,6 +102,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/asap"
                 android:textSize="12sp"
+                android:textColor="@color/offWhite"
+                android:text="@={shoe.description}"
                 app:layout_constraintBottom_toTopOf="@+id/shoeSize"
                 app:layout_constraintStart_toEndOf="@+id/descriptionLabel"
                 app:layout_constraintTop_toBottomOf="@+id/shoeCompany" />
@@ -106,7 +115,7 @@
                 android:fontFamily="@font/asap"
                 android:paddingRight="5dp"
                 android:text="@string/size"
-                android:textColor="@color/offWhite"
+                android:textColor="@color/darkPurple"
                 android:textSize="12sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/shoeSize"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -118,6 +127,7 @@
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/asap"
+                android:textColor="@color/offWhite"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/shoeSizeLabel"

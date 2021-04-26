@@ -1,11 +1,9 @@
 package com.udacity.shoestore.screens
 
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.Window
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -37,21 +35,13 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         navController.addOnDestinationChangedListener { nc: NavController, nd: NavDestination, _ ->
-            if (nd.id == nc.graph.startDestination) {
-                supportActionBar?.hide()
-                binding.toolbar.setBackgroundColor(getColor(R.color.darkPurple))
-            } else {
-                supportActionBar?.show()
+            when (nd.id) {
+                nc.graph.startDestination -> supportActionBar?.hide()
+                else -> supportActionBar?.show()
             }
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.navigation_menu, menu)
-        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {

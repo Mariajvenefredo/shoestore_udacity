@@ -4,6 +4,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".screens.shoeDetail.ShoeDetailFragment">
 
+    <data>
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -68,6 +74,7 @@
             android:maxLines="1"
             android:layout_marginTop="@dimen/fragment_vertical_double_margin"
             android:hint="@string/prompt_name"
+            android:text="@={shoe.name}"
             android:textColor="@color/offWhite"
             app:layout_constraintEnd_toEndOf="@id/guideline_right"
             app:layout_constraintStart_toStartOf="@+id/guideline_left_after_label"
@@ -90,6 +97,7 @@
             android:layout_marginTop="@dimen/fragment_vertical_margin"
             android:maxLines="1"
             android:hint="@string/prompt_company"
+            android:text="@={shoe.company}"
             android:textColor="@color/offWhite"
             app:layout_constraintEnd_toEndOf="@id/guideline_right"
             app:layout_constraintStart_toStartOf="@+id/guideline_left_after_label"
@@ -136,6 +144,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/fragment_vertical_margin"
             android:hint="@string/prompt_description"
+            android:text="@={shoe.description}"
             android:textColor="@color/offWhite"
             app:layout_constraintEnd_toEndOf="@id/guideline_right"
             app:layout_constraintStart_toStartOf="@+id/guideline_left_after_label"
