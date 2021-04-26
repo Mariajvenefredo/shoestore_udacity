@@ -36,18 +36,19 @@ class ShoeListFragment : Fragment() {
         val shoeList = viewModel.shoeList
         binding.lifecycleOwner = this
 
-        buildShoeListView(shoeList, inflater)
-
-        binding
-            .addShoeButton
-            .apply {
-                isClickable = true
-                setOnClickListener {
-                    findNavController()
-                        .navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
+        binding.apply {
+            shoeListContainer.removeAllViews()
+            addShoeButton
+                .apply {
+                    isClickable = true
+                    setOnClickListener {
+                        findNavController()
+                            .navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
+                    }
                 }
-            }
+        }
 
+        buildShoeListView(shoeList, inflater)
         return binding.root
     }
 

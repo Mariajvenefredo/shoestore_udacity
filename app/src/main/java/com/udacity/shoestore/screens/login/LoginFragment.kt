@@ -25,17 +25,16 @@ class LoginFragment : Fragment() {
             .inflate(inflater, R.layout.login_fragment, container, false)
 
         binding
-            .loginButton
-            .setOnClickListener {
-                navigateToWelcomeScreen()
+            .apply {
+                loginButton
+                    .setOnClickListener {
+                        navigateToWelcomeScreen()
+                    }
+                registerButton
+                    .setOnClickListener {
+                        navigateToWelcomeScreen()
+                    }
             }
-
-        binding
-            .registerButton
-            .setOnClickListener {
-                navigateToWelcomeScreen()
-            }
-
         return binding.root
     }
 

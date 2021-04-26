@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoeDetailFragmentBinding
+import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.screens.ShoeActivityViewModel
 
 class ShoeDetailFragment : Fragment() {
@@ -27,17 +28,22 @@ class ShoeDetailFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.shoe_detail_fragment, container, false)
         binding.lifecycleOwner = this
-        binding
-            .cancelButton
-            .setOnClickListener {
-                navigateBackToShoesScreen()
-            }
-        binding
-            .addButton
-            .setOnClickListener {
-                addShoeToList()
-            }
+
+        binding.apply {
+            cancelButton
+                .setOnClickListener {
+                    navigateBackToShoesScreen()
+                }
+            addButton
+                .setOnClickListener {
+                    addShoeToList()
+                }
+            //initialize empty shoe
+            shoe = Shoe()
+        }
+
         setShoeSizeSpinner()
+
         return binding.root
     }
 
