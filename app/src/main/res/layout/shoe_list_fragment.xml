@@ -47,6 +47,7 @@
             app:layout_constraintTop_toBottomOf="@+id/addShoeButton"
             tools:layout_editor_absoluteX="0dp">
 
+            <!--LinearLayout is used to later fill the list of shoes -->
             <LinearLayout
                 android:id="@+id/shoeListContainer"
                 android:layout_width="match_parent"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
         <variable
             name="shoe"
@@ -13,24 +14,23 @@
         android:layout_width="match_parent"
         android:layout_height="150dp">
 
-        <RelativeLayout
-            android:id="@+id/imageLayout"
-            android:layout_width="90dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="@dimen/fragment_vertical_margin"
-            android:background="@color/darkPurple"
-            app:layout_constraintBottom_toTopOf="@+id/shoeName"
-            app:layout_constraintEnd_toStartOf="@+id/companyAndDescLayout"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_guideline_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/vertical_guideline_details" />
 
-            <ImageView
-                android:id="@+id/shoeImage"
-                android:layout_width="87dp"
-                android:layout_height="72dp"
-                android:layout_centerInParent="true" />
-        </RelativeLayout>
+        <ImageView
+            android:id="@+id/shoeImage"
+            android:layout_width="87dp"
+            android:layout_height="72dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/border_view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/vertical_guideline_details"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/shoeName"
@@ -40,106 +40,99 @@
             android:layout_marginBottom="@dimen/fragment_vertical_margin"
             android:fontFamily="@font/asap"
             android:shadowColor="@color/darkPurple"
-            android:textColor="@color/offWhite"
             android:text="@={shoe.name}"
+            android:textColor="@color/offWhite"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/imageLayout"
-            app:layout_constraintStart_toStartOf="@+id/imageLayout"
-            app:layout_constraintTop_toBottomOf="@+id/imageLayout" />
+            app:layout_constraintEnd_toEndOf="@id/vertical_guideline_details"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shoeImage" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/companyAndDescLayout"
-            android:layout_width="210dp"
-            android:layout_height="80dp"
+        <TextView
+            android:id="@+id/companyLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/asap"
+            android:gravity="center"
+            android:paddingRight="5dp"
+            android:text="@string/company"
+            android:textColor="@color/darkPurple"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/shoeCompany"
+            app:layout_constraintBottom_toTopOf="@+id/descriptionLabel"
+            app:layout_constraintStart_toStartOf="@id/vertical_guideline_details"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/shoeCompany"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_vertical_double_margin"
+            android:fontFamily="@font/asap"
+            android:text="@={shoe.company}"
+            android:textColor="@color/offWhite"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/shoeDescription"
+            app:layout_constraintStart_toEndOf="@+id/companyLabel"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/descriptionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/asap"
+            android:gravity="center"
+            android:paddingRight="5dp"
+            android:text="@string/description"
+            android:textColor="@color/darkPurple"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/shoeDescription"
+            app:layout_constraintBottom_toTopOf="@+id/shoeSizeLabel"
+            app:layout_constraintStart_toStartOf="@id/vertical_guideline_details"
+            app:layout_constraintTop_toBottomOf="@+id/companyLabel" />
+
+        <TextView
+            android:id="@+id/shoeDescription"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/asap"
+            android:text="@={shoe.description}"
+            android:textColor="@color/offWhite"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/shoeSize"
+            app:layout_constraintStart_toEndOf="@+id/descriptionLabel"
+            app:layout_constraintTop_toBottomOf="@+id/shoeCompany" />
+
+        <TextView
+            android:id="@+id/shoeSizeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/asap"
+            android:paddingRight="5dp"
+            android:text="@string/size"
+            android:textColor="@color/darkPurple"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/shoeSize"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageLayout"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toStartOf="@id/vertical_guideline_details"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionLabel" />
 
-            <TextView
-                android:id="@+id/companyLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/asap"
-                android:gravity="center"
-                android:paddingRight="5dp"
-                android:text="@string/company"
-                android:textColor="@color/darkPurple"
-                android:textSize="12sp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/shoeCompany"
-                app:layout_constraintBottom_toTopOf="@+id/descriptionLabel"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/shoeCompany"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/asap"
-                android:textSize="12sp"
-                android:textColor="@color/offWhite"
-                android:text="@={shoe.company}"
-                app:layout_constraintBottom_toTopOf="@+id/shoeDescription"
-                app:layout_constraintStart_toEndOf="@+id/companyLabel"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/descriptionLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/asap"
-                android:gravity="center"
-                android:paddingRight="5dp"
-                android:text="@string/description"
-                android:textColor="@color/darkPurple"
-                android:textSize="12sp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/shoeDescription"
-                app:layout_constraintBottom_toTopOf="@+id/shoeSizeLabel"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/companyLabel" />
-
-            <TextView
-                android:id="@+id/shoeDescription"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/asap"
-                android:textSize="12sp"
-                android:textColor="@color/offWhite"
-                android:text="@={shoe.description}"
-                app:layout_constraintBottom_toTopOf="@+id/shoeSize"
-                app:layout_constraintStart_toEndOf="@+id/descriptionLabel"
-                app:layout_constraintTop_toBottomOf="@+id/shoeCompany" />
-
-            <TextView
-                android:id="@+id/shoeSizeLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/asap"
-                android:paddingRight="5dp"
-                android:text="@string/size"
-                android:textColor="@color/darkPurple"
-                android:textSize="12sp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/shoeSize"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/descriptionLabel" />
-
-            <TextView
-                android:id="@+id/shoeSize"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/asap"
-                android:textColor="@color/offWhite"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/shoeSizeLabel"
-                app:layout_constraintTop_toBottomOf="@+id/shoeDescription" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/shoeSize"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/fragment_vertical_double_margin"
+            android:fontFamily="@font/asap"
+            android:textColor="@color/offWhite"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/shoeSizeLabel"
+            app:layout_constraintTop_toBottomOf="@+id/shoeDescription" />
 
         <include
             layout="@layout/divider_view"
             app:layout_constraintTop_toBottomOf="@+id/image" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
